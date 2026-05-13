@@ -4,10 +4,11 @@ using {cuid} from '@sap/cds/common';
 
 entity Employees : cuid {
 
-    name        : String(50);
-    email       : String(100);
-    department  : String(50);
-    designation : String(50);
+    name           : String(50);
+    email          : String(100);
+    department     : String(50);
+    designation    : String(50);
+
 
 }
 
@@ -20,6 +21,16 @@ entity TravelRequests : cuid {
     transportation : String(50);
     status         : String(30);
     estimationCost : String(50);
+
+    Approval       : Association to many Approvals
+                         on Approval.travelRequest = $self;
+
+    Expenses       : Association to many Expenses
+                         on Expenses.travelRequest = $self;
+
+    Reimbursements : Association to many Reimbursements
+                         on Reimbursements.travelRequest = $self;
+
     employee       : Association to Employees;
 }
 

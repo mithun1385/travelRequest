@@ -38,6 +38,26 @@ annotate service.TravelRequests with @(
                 Label : 'EstimationCost',
                 Value : estimationCost,
             },
+            {
+                $Type : 'UI.DataField',
+                Value : employee.name,
+                Label : 'name',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : employee.email,
+                Label : 'email',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : employee.designation,
+                Label : 'designation',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : employee.department,
+                Label : 'department',
+            },
         ],
     },
     UI.Facets : [
@@ -46,6 +66,24 @@ annotate service.TravelRequests with @(
             ID : 'GeneratedFacet1',
             Label : 'General Information',
             Target : '@UI.FieldGroup#GeneratedGroup',
+        },
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : 'Approval',
+            ID : 'Approval',
+            Target : 'Approval/@UI.LineItem#Approval',
+        },
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : 'Expenses',
+            ID : 'Expenses',
+            Target : 'Expenses/@UI.LineItem#Expenses',
+        },
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : 'Reimbursements',
+            ID : 'Reimbursements',
+            Target : 'Reimbursements/@UI.LineItem#Reimbursements',
         },
     ],
     UI.LineItem : [
@@ -106,4 +144,69 @@ annotate service.TravelRequests with {
         ],
     }
 };
+
+annotate service.Approvals with @(
+    UI.LineItem #Approval : [
+        {
+            $Type : 'UI.DataField',
+            Value : approvalName,
+            Label : 'approvalName',
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : approvalStatus,
+            Label : 'approvalStatus',
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : comments,
+            Label : 'comments',
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : status,
+            Label : 'status',
+        },
+    ]
+);
+
+annotate service.Expenses with @(
+    UI.LineItem #Expenses : [
+        {
+            $Type : 'UI.DataField',
+            Value : amount,
+            Label : 'amount',
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : expenseType,
+            Label : 'expenseType',
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : description,
+            Label : 'description',
+        },
+    ]
+);
+
+annotate service.Reimbursements with @(
+    UI.LineItem #Reimbursements : [
+        {
+            $Type : 'UI.DataField',
+            Value : paymentDate,
+            Label : 'paymentDate',
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : paymentStatus,
+            Label : 'paymentStatus',
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : reimbursementAmount,
+            Label : 'reimbursementAmount',
+        },
+    ]
+);
 
