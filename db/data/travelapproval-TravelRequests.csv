@@ -1,0 +1,8 @@
+ID,destination,purpose,startDate,endDate,transportation,status,estimationCost,employee_ID
+550e8400-e29b-41d4-a716-446655440000,Bangalore,Client Meeting,2026-05-20,2026-05-22,Flight,Approved,15000.00,550e8400-e29b-41d4-a716-446655440000
+6ba7b810-9dad-11d1-80b4-00c04fd430c8,Hyderabad,Project Discussion,2026-06-01,2026-06-03,Train,Pending,8000.00,6ba7b810-9dad-11d1-80b4-00c04fd430c8
+7d444840-9dc0-11d1-b245-5ffdce74fad2,Mumbai,Sales Presentation,2026-06-10,2026-06-12,Flight,Approved,20000.00,7d444840-9dc0-11d1-b245-5ffdce74fad2
+16fd2706-8baf-433b-82eb-8c7fada847da,Delhi,Training Program,2026-06-15,2026-06-18,Flight,Rejected,25000.00,16fd2706-8baf-433b-82eb-8c7fada847da
+123e4567-e89b-12d3-a456-426614174000,Pune,Branch Visit,2026-07-05,2026-07-07,Bus,Pending,5000.00,123e4567-e89b-12d3-a456-426614174000
+3fa85f64-5717-4562-b3fc-2c963f66afa6,Kolkata,Conference,2026-07-12,2026-07-15,Flight,Approved,18000.00,3fa85f64-5717-4562-b3fc-2c963f66afa6
+c56a4180-65aa-42ec-a945-5fd21dec0538,Chennai,Vendor Meeting,2026-08-01,2026-08-02,Car,Pending,3000.00,c56a4180-65aa-42ec-a945-5fd21dec0538
