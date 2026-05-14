@@ -9,7 +9,6 @@ entity Employees : cuid {
     department     : String(50);
     designation    : String(50);
 
-
 }
 
 entity TravelRequests : cuid {
@@ -45,6 +44,7 @@ entity Approvals : cuid {
 }
 
 entity Expenses : cuid {
+    
     expenseType   : String(50);
     amount        : Integer;
     description   : String(50);

@@ -58,6 +58,21 @@ annotate service.TravelRequests with @(
                 Value : employee.department,
                 Label : 'department',
             },
+            {
+                $Type : 'UI.DataFieldForAction',
+                Action : 'travelService.EntityContainer/approvelTravel',
+                Label : 'approvelTravel',
+            },
+            {
+                $Type : 'UI.DataFieldForAction',
+                Action : 'travelService.EntityContainer/rejectTravel',
+                Label : 'rejectTravel',
+            },
+            {
+                $Type : 'UI.DataFieldForAction',
+                Action : 'travelService.EntityContainer/processReimburasement',
+                Label : 'processReimburasement',
+            },
         ],
     },
     UI.Facets : [

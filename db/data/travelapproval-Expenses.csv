@@ -1,1 +1,8 @@
 ID,expenseType,amount,description,travelRequest_ID
+550e8400-e29b-41d4-a716-446655440020,Flight,15000,Flight Ticket Booking,550e8400-e29b-41d4-a716-446655440000
+6ba7b811-9dad-11d1-80b4-00c04fd430e2,Hotel,12000,Hotel Accommodation,6ba7b810-9dad-11d1-80b4-00c04fd430c8
+7d444841-9dc0-11d1-b245-5ffdce74fae1,Food,3000,Food Expenses,7d444840-9dc0-11d1-b245-5ffdce74fad2
+16fd2707-8baf-433b-82eb-8c7fada847dc,Taxi,2500,Local Transportation,16fd2706-8baf-433b-82eb-8c7fada847da
+123e4567-e89b-12d3-a456-426614174020,Train,5000,Train Ticket Booking,123e4567-e89b-12d3-a456-426614174000
+3fa85f64-5717-4562-b3fc-2c963f66afc0,Internet,1500,WiFi and Data Charges,3fa85f64-5717-4562-b3fc-2c963f66afa6
+c56a4180-65aa-42ec-a945-5fd21dec0550,Conference,8000,Conference Registration Fee,c56a4180-65aa-42ec-a945-5fd21dec0538
