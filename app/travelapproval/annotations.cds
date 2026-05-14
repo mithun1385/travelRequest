@@ -60,17 +60,17 @@ annotate service.TravelRequests with @(
             },
             {
                 $Type : 'UI.DataFieldForAction',
-                Action : 'travelService.EntityContainer/approvelTravel',
+                Action : 'travelService.approvelTravel',
                 Label : 'approvelTravel',
             },
             {
                 $Type : 'UI.DataFieldForAction',
-                Action : 'travelService.EntityContainer/rejectTravel',
+                Action : 'travelService.rejectTravel',
                 Label : 'rejectTravel',
             },
             {
                 $Type : 'UI.DataFieldForAction',
-                Action : 'travelService.EntityContainer/processReimburasement',
+                Action : 'travelService.processReimburasement',
                 Label : 'processReimburasement',
             },
         ],

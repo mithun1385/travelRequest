@@ -5,29 +5,34 @@ module.exports = class travelService extends cds.ApplicationService {
 
     const { Employees, TravelRequests, Approvals, Expenses, Reimbursements } = cds.entities('travelService');
 
+this.on('approvelTravel', async (req) => {
 
-    this.on('approvelTravel', async (req) => {
+    const {
+        approvalStatus,
+        comments,
+        status
+    } = req.data;
 
-      const {approvalStatus, comments, status } = req.data;
+    const travelRequestID = req.params[0].ID;
 
-      const travelRequestID = req.params[0].ID;
+    console.log("travelRequestID", travelRequestID);
 
-      console.log("travelRequestID",travelRequestID);
-      
+    const result = await UPDATE(Approvals)
+        .set({
+            approvalStatus,
+            comments,
+            status
+        })
+        .where({
+            travelRequest_ID: travelRequestID
+        });
+    req.notify("Travel is Updated successfully");
 
-  const result =    await UPDATE(Approvals)
-      .set({ approvalStatus,
-         comments, 
-         status })
-        .where({ travelRequestID:travelRequestID });
-      // await INSERT.into(Approvals).entries({ approvalStatus: data.status, comments: data.comments, status: data.status, travelRequest_ID: data.travelRequestID, approver_ID: data.approverID });
+    console.log("Updated Rows:", result);
 
-      console.log('On approvelTravel', req.data, result);
-      
-      return { message: 'Travel request approved successfully' };
-    })
+ 
+});
 
-    
     // this.on('rejectTravel',async (req) => {
     //   console.log('On rejectTravel', req.data)
     // })
