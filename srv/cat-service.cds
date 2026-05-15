@@ -13,15 +13,26 @@ service travelService {
         status         : String
     ) returns String;
 
+      action rejectTravel( 
+        approvalStatus : String,
+        comments       : String
+      )          returns String;
+
 };
 
     entity Approvals      as projection on db.Approvals;
     entity Expenses       as projection on db.Expenses;
-    entity Reimbursements as projection on db.Reimbursements;
+    entity Reimbursements as projection on db.Reimbursements actions{
+        action createreimbursement( 
+            paymentDate: Date,
+            paymentStatus: String,
+            reimbursementAmount: Decimal
+         ) returns String;
+    };
+ 
 
 
-
-    action rejectTravel(requestID: UUID)          returns String;
+  
     action processReimburasement(requestID: UUID) returns String;
 
 }

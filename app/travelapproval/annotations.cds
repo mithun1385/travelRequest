@@ -61,17 +61,17 @@ annotate service.TravelRequests with @(
             {
                 $Type : 'UI.DataFieldForAction',
                 Action : 'travelService.approvelTravel',
-                Label : 'approvelTravel',
+                Label : 'ApprovelTravel',
             },
             {
                 $Type : 'UI.DataFieldForAction',
                 Action : 'travelService.rejectTravel',
-                Label : 'rejectTravel',
+                Label : 'RejectTravel',
             },
             {
                 $Type : 'UI.DataFieldForAction',
                 Action : 'travelService.processReimburasement',
-                Label : 'processReimburasement',
+                Label : 'ProcessReimburasement',
             },
         ],
     },
@@ -222,6 +222,12 @@ annotate service.Reimbursements with @(
             Value : reimbursementAmount,
             Label : 'reimbursementAmount',
         },
+        {
+            $Type : 'UI.DataFieldForAction',
+            Action : 'travelService.createreimbursement',
+            Label : 'createreimbursement',
+        },
+     
     ]
 );
 

@@ -1,53 +1,97 @@
-const cds = require('@sap/cds')
+const cds = require('@sap/cds');
+const { UPDATE, INSERT } = require('@sap/cds/lib/ql/cds-ql');
 
 module.exports = class travelService extends cds.ApplicationService {
-  init() {
+    init() {
 
-    const { Employees, TravelRequests, Approvals, Expenses, Reimbursements } = cds.entities('travelService');
+        const { Employees, TravelRequests, Approvals, Expenses, Reimbursements } = cds.entities('travelService');
 
-this.on('approvelTravel', async (req) => {
+        this.on('approvelTravel', async (req) => {
 
-    const {
-        approvalStatus,
-        comments,
-        status
-    } = req.data;
+            const {
+                approvalStatus,
+                comments,
+                status
+            } = req.data;
 
-    const travelRequestID = req.params[0].ID;
+            const travelRequestID = req.params[0].ID;
 
-    console.log("travelRequestID", travelRequestID);
+            console.log("travelRequestID", travelRequestID);
 
-    const result = await UPDATE(Approvals)
-        .set({
-            approvalStatus,
-            comments,
-            status
-        })
-        .where({
-            travelRequest_ID: travelRequestID
+            const result = await UPDATE(Approvals)
+                .set({
+                    approvalStatus,
+                    comments,
+                    status
+                })
+                .where({
+                    travelRequest_ID: travelRequestID
+                });
+            req.notify("Travel is Updated successfully");
+
+            console.log("Updated Rows:", result);
         });
-    req.notify("Travel is Updated successfully");
 
-    console.log("Updated Rows:", result);
+        this.on('rejectTravel', async (req) => {
 
- 
-});
+            const { approvalStatus, comments } = req.data;
 
-    // this.on('rejectTravel',async (req) => {
-    //   console.log('On rejectTravel', req.data)
-    // })
-    // this.on('processReimburasement',async (req) => {
-    //   console.log('On processReimburasement', req.data)
-    // })    
+            const travelRequestID = req.params[0].ID;
+
+            console.log("travelRequestID", travelRequestID);
+
+            const result = await UPDATE(Approvals)
+                .set({
+                    approvalStatus,
+                    comments,
+                    status: "Rejected"
+                })
+                .where({
+                    travelRequest_ID: travelRequestID
+                });
+            req.notify("Travel is Rejected successfully");
+
+            console.log("Updated Rows:", result);
+
+
+        });
+
+        this.on('createreimbursement',async(req)=>{
+
+            const { paymentDate,paymentStatus,reimbursementAmount} = req.data;
+
+            const travelRequestID = req.params[0].ID;
+
+            console.log("travelRequestID", travelRequestID);
+
+            const result = await INSERT.into(Reimbursements ).entries({
+                paymentDate,
+                paymentStatus,
+                reimbursementAmount,
+                travelRequestID: travelRequestID
+            })
+
+            req.notify("Reimbursement is created successfully");
+
+            console.log("Inserted Rows:", result);
+
+
+        })
+
+
+
+        // this.on('rejectTravel',async (req) => {
+        //   console.log('On rejectTravel', req.data)
+        // })
+        // this.on('processReimburasement',async (req) => {
+        //   console.log('On processReimburasement', req.data)
+        // })    
 
 
 
 
-
-
-
-    return super.init()
-  }
+        return super.init()
+    }
 }
 
 
